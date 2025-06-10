@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory GF Culinary Tech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Inventory GF Culinary Tech</h1>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Tambah Item Baru</h2>
+            <div class="form-input">
+                <input type="text" id="itemName" placeholder="Nama Barang" required>
+                <input type="number" id="itemQuantity" placeholder="Jumlah" required>
+                <select id="itemStatus" required>
+                    <option value="Baik" selected>Status: Baik</option>
+                    <option value="Perlu Perbaikan">Status: Perlu Perbaikan</option>
+                    <option value="Rusak">Status: Rusak</option>
+                </select>
+                <input type="text" id="itemOwner" placeholder="Pemilik/Outlet">
+                <div class="date-input-wrapper">
+                    <label for="itemPurchaseDate">Tgl. Beli:</label>
+                    <input type="date" id="itemPurchaseDate">
+                </div>
+                <button id="addItemBtn">Tambah Item</button>
+            </div>
+
+            <h2>Daftar Inventaris</h2>
+
+            <div class="inventory-header">
+                <div class="select-all-container">
+                    <input type="checkbox" id="selectAllCheckbox" title="Pilih Semua">
+                    <label for="selectAllCheckbox">Pilih Semua</label>
+                </div>
+                <input type="search" id="searchInput" placeholder="Cari barang...">
+                <button id="printSelectedBtn" disabled>Cetak Terpilih (0)</button>
+            </div>
+            <div id="inventoryList"></div>
+        </div>
+
+        <div class="sidebar">
+            <h2>Pemindai QR Code</h2>
+            <div id="qr-reader"></div>
+            
+            <div id="generated-qr-code">
+                <h3>QR Code untuk Item Baru:</h3>
+                <div id="qrcode"></div>
+            </div>
+
+            <div id="scanned-result">
+                <h3>Hasil Pindai:</h3>
+                <p id="result-text">Arahkan kamera ke QR code...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="item-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Detail Item</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script src="app.js"></script>
+</body>
+</html>
